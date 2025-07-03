@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>ตารางรายชื่อ เพื่อน</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0f2027;
+      background-image: 
+        radial-gradient(circle at 25% 25%, #00e5ff33, transparent 25%),
+        radial-gradient(circle at 75% 75%, #00e5ff33, transparent 25%),
+        repeating-linear-gradient(45deg, #00e5ff11, #00e5ff11 2px, transparent 3px, transparent 10px),
+        repeating-linear-gradient(-45deg, #00e5ff11, #00e5ff11 2px, transparent 3px, transparent 10px);
+      background-size: 200px 200px;
+      background-position: 0 0, 100px 100px, 0 0, 0 0;
+      background-repeat: repeat;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      color: #00e5ff;
+      width: 400px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #00e5ff;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #0099cc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #003344;
+      color: #00e5ff;
+    }
+
+    td {
+      background-color: rgba(0, 229, 255, 0.1);
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 200px;
+      background-color: #003344;
+      color: #00e5ff;
+      border: 1px solid #0099cc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin-left: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button[type="submit"] {
+      background-color: #00c853;
+      color: white;
+    }
+
+    #clearAll {
+      background-color: #d50000;
+      color: white;
+    }
+
+    #nameForm {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💻 รายชื่อเพื่อนในห้องคอม</h1>
+
+    <form id="nameForm">
+      <label for="name">เพิ่มชื่อ:</label>
+      <input type="text" id="name" required />
+      <button type="submit">เพิ่ม</button>
+      <button type="button" id="clearAll">ลบทั้งหมด</button>
+    </form>
+
+    <table id="nameTable">
+      <thead>
+        <tr>
+          <th>ลำดับ</th>
+          <th>ชื่อ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- รายชื่อจะถูกเพิ่มที่นี่ -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById('nameForm');
+    const nameInput = document.getElementById('name');
+    const tableBody = document.querySelector('#nameTable tbody');
+    const clearAllBtn = document.getElementById('clearAll');
+    let count = 0;
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = nameInput.value.trim();
+      if (name !== "") {
+        count++;
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${count}</td>
+          <td>${name}</td>
+        `;
+        tableBody.appendChild(newRow);
+        nameInput.value = "";
+      }
+    });
+
+    clearAllBtn.addEventListener('click', function() {
+      tableBody.innerHTML = "";
+      count = 0;
+    });
+  </script>
+
+</body>
+</html>
