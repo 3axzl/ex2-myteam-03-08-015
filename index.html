@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>หน้าแรก</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-image: url('https://www.weedworldmagazine.org/wp-content/uploads/2018/01/Picture-078.jpg'); /* เปลี่ยนตรงนี้เป็นชื่อไฟล์ภาพของคุณ */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  </style>
 </head>
 <body>
-    
+
+  <h1>Welcome</h1>
+  <button onclick="goToPage('about')">เกี่ยวกับเรา</button>
+  <button onclick="goToPage('contact')">ติดต่อเรา</button>
+
+  <script>
+    const routes = {
+      about: 'about.html',
+      contact: 'contact.html'
+    };
+
+    function goToPage(page) {
+      if (routes[page]) {
+        window.location.href = routes[page];
+      } else {
+        alert('ไม่พบหน้า ' + page);
+      }
+    }
+  </script>
+
 </body>
 </html>

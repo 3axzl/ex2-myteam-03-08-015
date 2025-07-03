@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+
   <meta charset="UTF-8">
+
+  <meta charset="UTF-8" />
+
   <title>ตารางรายชื่อ เพื่อน</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+
       background-image: url(''); /* เปลี่ยนภาพพื้นหลังได้ตามใจ */
       background-size: cover;
       background-position: center;
+
+      background-color: #0f2027;
+      background-image: 
+        radial-gradient(circle at 25% 25%, #00e5ff33, transparent 25%),
+        radial-gradient(circle at 75% 75%, #00e5ff33, transparent 25%),
+        repeating-linear-gradient(45deg, #00e5ff11, #00e5ff11 2px, transparent 3px, transparent 10px),
+        repeating-linear-gradient(-45deg, #00e5ff11, #00e5ff11 2px, transparent 3px, transparent 10px);
+      background-size: 200px 200px;
+      background-position: 0 0, 100px 100px, 0 0, 0 0;
+      background-repeat: repeat;
+
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -18,16 +34,30 @@
     }
 
     .container {
+
       background-color: rgba(255, 255, 255, 0.85);
       padding: 30px 40px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       text-align: center;
+
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      color: #00e5ff;
+      width: 400px;
+
     }
 
     h1 {
       margin-bottom: 20px;
+
       color: #333;
+
+      color: #00e5ff;
+
     }
 
     table {
@@ -37,18 +67,38 @@
     }
 
     th, td {
+
       border: 1px solid #888;
+
+      border: 1px solid #0099cc;
+
       padding: 10px;
       text-align: center;
     }
 
     th {
+
       background-color: #d0e0f0;
+
+      background-color: #003344;
+      color: #00e5ff;
+    }
+
+    td {
+      background-color: rgba(0, 229, 255, 0.1);
+
     }
 
     input[type="text"] {
       padding: 8px;
       width: 200px;
+
+
+      background-color: #003344;
+      color: #00e5ff;
+      border: 1px solid #0099cc;
+      border-radius: 4px;
+
     }
 
     button {
@@ -57,15 +107,27 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+
     }
 
     button[type="submit"] {
       background-color: #4CAF50;
+
+      font-weight: bold;
+    }
+
+    button[type="submit"] {
+      background-color: #00c853;
+
       color: white;
     }
 
     #clearAll {
+
       background-color: #f44336;
+
+      background-color: #d50000;
+
       color: white;
     }
 
@@ -81,17 +143,24 @@
 <body>
 
   <div class="container">
+
     <h1>📋 ตารางรายชื่อเพื่อน</h1>
 
     <!-- ฟอร์มเพิ่มชื่อ + ลบทั้งหมด -->
     <form id="nameForm">
       <label for="name">เพิ่มชื่อ:</label>
       <input type="text" id="name" required>
+
+    <h1>💻 รายชื่อเพื่อนในห้องคอม</h1>
+
+    <form id="nameForm">
+      <label for="name">เพิ่มชื่อ:</label>
+      <input type="text" id="name" required />
+
       <button type="submit">เพิ่ม</button>
       <button type="button" id="clearAll">ลบทั้งหมด</button>
     </form>
 
-    <!-- ตาราง -->
     <table id="nameTable">
       <thead>
         <tr>
@@ -134,4 +203,3 @@
   </script>
 
 </body>
-</html>
